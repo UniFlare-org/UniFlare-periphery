@@ -1,4 +1,4 @@
-pragma solidity ^0.5.16; // #####  SPDX-License-Identifier: None
+pragma solidity ^0.6.6; // #####  SPDX-License-Identifier: None
 contract auth {
     address public _owner;
     mapping (address => bool) public _gov;
@@ -43,15 +43,15 @@ contract auth {
     }
     
     
-    modifier onlyOwner() { require(isOwner(_msgSender())); _;   }
+    modifier onlyOwner() { require(isOwner(msg.sender)); _;   }
     
     
-    modifier govern() {    require(isOwner(_msgSender()) || isGovern(_msgSender())    ); _;        }
+    modifier govern() {    require(isGovern(msg.sender) ); _;        }
         
-    modifier admin() {    require(isOwner(_msgSender()) || isAdmin(_msgSender())    ); _;        }
+    modifier admin() {    require(isAdmin(msg.sender) ); _;        }
 
-    modifier _auth() {    require(_whiteList[_msgSender()] == true); _;  }
-    modifier _banCheck() { require(_blackList[_msgSender()] == false); _; }
+    modifier _auth() {    require(_whiteList[msg.sender] == true); _;  }
+    modifier _banCheck() { require(_blackList[msg.sender] == false); _; }
     
         
     function makeGov(address adr) public onlyOwner {

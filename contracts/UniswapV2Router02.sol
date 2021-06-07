@@ -1,4 +1,4 @@
-pragma solidity =0.6.6; // 0xA258c2C544077C5D7bE330A3510dC8b7a3339C6C
+pragma solidity ^0.6.6; // 0xA258c2C544077C5D7bE330A3510dC8b7a3339C6C
 
 import '@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol';
 import '@uniswap/lib/contracts/libraries/TransferHelper.sol';

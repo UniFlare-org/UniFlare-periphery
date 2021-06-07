@@ -6,7 +6,7 @@
  *Submitted for verification at Bscscan.com on 2020-09-03
 */
 
-pragma solidity =0.6.6;
+pragma solidity ^0.6.6;
 
 contract WBNB {
     string public name     = "Wrapped FLR";
